@@ -10,6 +10,7 @@ const HomeScreen = (props) => {
       <Button onPress={() => props.navigation.navigate('Component') } touchSoundDisabled title={'go to components demo'}/>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Lists')}><Text style={styles.button}>Go to list demo</Text></TouchableOpacity>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Image')}><Text style={styles.button}>Go to Images</Text></TouchableOpacity>
+      <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Counter')}><Text style={styles.button}>Go to Counter Demo</Text></TouchableOpacity>
     </View>);
 };
 

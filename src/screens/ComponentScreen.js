@@ -4,7 +4,7 @@ export default function ComponentScreen() {
   const greeting = <Text style={styles.testStyle}>Hello World from variable</Text>
 
   const openExternalLink = () => {
-    const url = 'https://www.google.com';
+    const url = 'https://www.bloxima.com';
     Linking.openURL(url)
       .catch((err) => console.error('An error occurred: ', err));
   };
