@@ -1,17 +1,17 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {useState} from 'react';
 
-export default function CounterScreen(){
+export default function CounterScreen() {
 
-  let [counter,setCounter] = useState(0);
+  let [counter, setCounter] = useState(0);
 
-  return(
+  return (
     <View>
       <Button onPress={() => {
-        setCounter(counter++)
+        setCounter(counter + 1)
       }} title={'Increase'}/>
       <Button onPress={() => {
-        setCounter(counter--)
+        setCounter(counter - 1)
       }} color={'red'} title={'Decrease'}/>
       <Text style={styles.testStyle}>Current Count:{counter}</Text>
     </View>
@@ -19,17 +19,17 @@ export default function CounterScreen(){
 }
 
 const styles = StyleSheet.create({
-  button:{
-    fontSize:17,
-    paddingVertical:8,
-    backgroundColor:'blue',
-    color:'white',
-    marginTop:20,
-    textAlign:'center',
+  button: {
+    fontSize: 17,
+    paddingVertical: 8,
+    backgroundColor: 'blue',
+    color: 'white',
+    marginTop: 20,
+    textAlign: 'center',
   },
   testStyle: {
-    marginVertical:20,
-    textAlign:'center',
+    marginVertical: 20,
+    textAlign: 'center',
     fontSize: 30,
   }
 });
