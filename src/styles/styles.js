@@ -16,8 +16,31 @@ export const styles = StyleSheet.create({
   },
   inputStyle: {
     margin: 20,
-    borderColor:'black',
+    borderColor: 'black',
     borderWidth: 1,
-    height:35,
+    height: 35,
   },
+  viewStyle: {
+    borderWidth: 3,
+    borderColor: 'black',
+    flexDirection:'row',
+    height:127,
+  },
+  textOneStyle: {
+    height:100,
+    borderWidth: 3,
+    borderColor: 'red',
+  },
+  textTwoStyle: {
+    flex:1,
+    borderWidth: 3,
+    alignSelf:'flex-end',
+    borderColor: 'red',
+    marginTop:20,
+  },
+  textThreeStyle: {
+    height:100,
+    borderWidth: 3,
+    borderColor: 'red',
+  }
 });
