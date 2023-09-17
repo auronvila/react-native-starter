@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View, Button, TouchableOpacity} from 'react-native';
+import {styles} from '../styles/styles';
 
 const HomeScreen = (props) => {
   return (
@@ -13,23 +14,10 @@ const HomeScreen = (props) => {
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Counter')}><Text style={styles.button}>Go to Counter Demo</Text></TouchableOpacity>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Color')}><Text style={styles.button}>Go to Colors Demo</Text></TouchableOpacity>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Square')}><Text style={styles.button}>Go to Custom Colors Demo</Text></TouchableOpacity>
+      <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Input')}><Text style={styles.button}>Go to Custom Inputs Demo</Text></TouchableOpacity>
     </View>);
 };
 
-const styles = StyleSheet.create({
-  button:{
-    fontSize:17,
-    paddingVertical:8,
-    backgroundColor:'blue',
-    color:'white',
-    marginTop:20,
-    textAlign:'center',
-  },
-  testStyle: {
-    marginVertical:20,
-    textAlign:'center',
-    fontSize: 30,
-  }
-});
+
 
 export default HomeScreen;
