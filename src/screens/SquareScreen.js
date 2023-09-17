@@ -1,51 +1,58 @@
-import {Button, FlatList, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import ColorCounter from '../Components/ColorCounter';
-import {useState} from 'react';
+import {useReducer} from 'react';
 
 const COLOR_INCREMENT = 10
-export default function SquareScreen() {
-  const [red, setRed] = useState(0)
-  const [blue, setBlue] = useState(0)
-  const [green, setGreen] = useState(0)
 
-  const setColor = (color, change) => {
-    switch (color) {
-      case 'red':
-        (red + change > 255 || red + change < 0) ? null : setRed(red + change)
-        return;
-      case 'blue':
-        (blue + change > 255 || blue + change < 0) ? null : setBlue(blue + change)
-        return;
-      case 'green':
-        (green + change > 255 || green + change < 0) ? null : setGreen(green + change)
-        return;
-      default:
-        return;
-    }
+// the state is the state that we know from the use state the action is the function that we will tell how is this state going to change
+// so, we can define whatever properties we want to it, but when we use the state we need to define it as an argument
+function reducer(state, action) {
+// state === {red:number, green:number, blue:number}
+// action === {type: 'change_red' || 'change_green' || 'change_blue', payload: 15 || -15}
+
+  switch (action.type) {
+    case 'change_red':
+      // never do ---> state.red = state.red -15
+      return state.red + action.payload > 255 || state.red + action.payload < 0 ? state : {
+        ...state, red: state.red + action.payload
+      }
+    case 'change_green':
+      return state.green + action.payload > 255 || state.green + action.payload < 0 ? state : {
+        ...state, green: state.green + action.payload
+      }
+    case 'change_blue':
+      return state.blue + action.payload > 255 || state.blue + action.payload < 0 ? state : {
+        ...state, blue: state.blue + action.payload
+      }
+    default:
+      return state
   }
+}
 
+export default function SquareScreen() {
+  const [state, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0})
 
   return (
     <View>
       <ColorCounter
-        onIncrease={() => setColor('red', COLOR_INCREMENT)}
-        onDecrease={() => setColor('red', -1 * COLOR_INCREMENT)}
+        onIncrease={() => dispatch({type: 'change_red', payload: COLOR_INCREMENT})}
+        onDecrease={() => dispatch({type: 'change_red', payload: -1 * COLOR_INCREMENT})}
         color={'red'}
         title={'Red'}/>
       <ColorCounter
         color={'blue'}
         title={'Blue'}
-        onIncrease={() => setColor('blue', COLOR_INCREMENT)}
-        onDecrease={() => setColor('blue', -1 * COLOR_INCREMENT)}
+        onIncrease={() => dispatch({type: 'change_blue', payload: COLOR_INCREMENT})}
+        onDecrease={() => dispatch({type: 'change_blue', payload: -1 * COLOR_INCREMENT})}
       />
       <ColorCounter
         color={'green'}
         title={'Green'}
-        onIncrease={() => setColor('green', COLOR_INCREMENT)}
-        onDecrease={() => setColor('green', -1 * COLOR_INCREMENT)}
+        onIncrease={() => dispatch({type: 'change_green', payload: COLOR_INCREMENT})}
+        onDecrease={() => dispatch({type: 'change_green', payload: -1 * COLOR_INCREMENT})}
       />
       <View style={{marginTop: 60, alignItems: 'center'}}>
-        <View style={{height: 150, width: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})`}}/>
+        <View style={{height: 150, width: 150, backgroundColor: `rgb(${state.red}, ${state.green}, ${state.blue})`}}/>
       </View>
     </View>
   )
