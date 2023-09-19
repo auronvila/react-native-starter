@@ -1,4 +1,4 @@
-import {Button, Modal, StatusBar, Text, View} from 'react-native';
+import {ActivityIndicator, Button, Modal, StatusBar, Text, View} from 'react-native';
 import {useState} from 'react';
 
 export default function ModalScreen() {
@@ -7,11 +7,13 @@ export default function ModalScreen() {
   const [statusBar, setStatusBar] = useState(false)
   return (
     <View style={{backgroundColor: 'grey', flex: 1, padding: 30}}>
-      <Button color={'black'} title={'press to open the modal'} onPress={() => {
+      {!statusBar && <Button color={'black'} title={'press to open the modal'} onPress={() => {
         setStatusBar(true)
-        setModal(true)
-      }}/>
-      <Button color={'blue'} title={'press to open the modal 1'} onPress={() => setModal1(true)}/>
+        setTimeout(() => {
+          setModal(true)
+        }, 2000)
+      }}/>}
+      { !statusBar && <Button color={'blue'} title={'press to open the modal 1'} onPress={() => setModal1(true)}/>}
       <Modal presentationStyle={'pageSheet'} animationType={'slide'} onRequestClose={() => setModal(false)}
              visible={modal}>
         <View style={{padding: 30}}>
@@ -31,6 +33,7 @@ export default function ModalScreen() {
         </View>
       </Modal>
       <StatusBar showHideTransition={'slide'} hidden={statusBar} animated barStyle={'light-content'}/>
+      <ActivityIndicator animating={statusBar} size={'large'} color={'blue'}/>
     </View>
   )
 }
