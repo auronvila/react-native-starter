@@ -9,6 +9,8 @@ import ColorScreen from './src/screens/ColorScreen';
 import SquareScreen from './src/screens/SquareScreen';
 import InputScreen from './src/screens/InputScreen';
 import BoxScreen from './src/screens/BoxScreen';
+import ModalScreen from './src/screens/ModalScreen';
+
 
 const navigator = createStackNavigator(
   {
@@ -21,6 +23,7 @@ const navigator = createStackNavigator(
     Square: SquareScreen,
     Input: InputScreen,
     Box: BoxScreen,
+    Modal: ModalScreen,
   },
   {
     initialRouteName: 'Home',

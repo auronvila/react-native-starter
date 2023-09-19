@@ -16,6 +16,7 @@ const HomeScreen = (props) => {
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Square')}><Text style={styles.button}>Go to Custom Colors Demo</Text></TouchableOpacity>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Input')}><Text style={styles.button}>Go to Custom Inputs Demo</Text></TouchableOpacity>
       <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Box')}><Text style={styles.button}>Go to Custom Box Demo</Text></TouchableOpacity>
+      <TouchableOpacity touchSoundDisabled onPress={() => props.navigation.navigate('Modal')}><Text style={styles.button}>Go to Custom Modals and Status Bar Demo</Text></TouchableOpacity>
     </View>);
 };
 
