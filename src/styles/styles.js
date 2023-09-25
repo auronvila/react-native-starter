@@ -26,10 +26,15 @@ export const styles = StyleSheet.create({
     flexDirection:'row',
     height:127,
   },
-  textOneStyle: {
+  BoxTextStyle:{
     height:100,
     borderWidth: 3,
+  },
+  textOneBgColor: {
     borderColor: 'red',
+  },
+  textThreeBgColor: {
+    borderColor: 'blue',
   },
   textTwoStyle: {
     flex:1,
@@ -38,9 +43,4 @@ export const styles = StyleSheet.create({
     borderColor: 'red',
     marginTop:20,
   },
-  textThreeStyle: {
-    height:100,
-    borderWidth: 3,
-    borderColor: 'red',
-  }
 });
