@@ -43,4 +43,17 @@ export const styles = StyleSheet.create({
     borderColor: 'red',
     marginTop:20,
   },
+  boxShadow:{
+    shadowColor:'#333333',
+    shadowOffset:{
+      width:6,
+      height:6,
+    },
+    shadowOpacity: 0.6,
+    shadowRadius:4,
+  },
+  androindShadow:{
+    elevation:10,
+    shadowColor:'green'
+  }
 });
