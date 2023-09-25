@@ -1,4 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
+
+const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width
 
 export const styles = StyleSheet.create({
   button: {
@@ -23,11 +26,11 @@ export const styles = StyleSheet.create({
   viewStyle: {
     borderWidth: 3,
     borderColor: 'black',
-    flexDirection:'row',
-    height:127,
+    flexDirection: 'row',
+    height: 127,
   },
-  BoxTextStyle:{
-    height:100,
+  BoxTextStyle: {
+    height: 100,
     borderWidth: 3,
   },
   textOneBgColor: {
@@ -37,23 +40,28 @@ export const styles = StyleSheet.create({
     borderColor: 'blue',
   },
   textTwoStyle: {
-    flex:1,
+    flex: 1,
     borderWidth: 3,
-    alignSelf:'flex-end',
+    alignSelf: 'flex-end',
     borderColor: 'red',
-    marginTop:20,
+    marginTop: 20,
   },
-  boxShadow:{
-    shadowColor:'#333333',
-    shadowOffset:{
-      width:6,
-      height:6,
+  boxShadow: {
+    shadowColor: '#333333',
+    shadowOffset: {
+      width: 6,
+      height: 6,
     },
     shadowOpacity: 0.6,
-    shadowRadius:4,
+    shadowRadius: 4,
   },
-  androindShadow:{
-    elevation:10,
-    shadowColor:'green'
+  androindShadow: {
+    elevation: 10,
+    shadowColor: 'green'
+  },
+  dynamicStyles: {
+    width: windowWidth > 500 ? '70%' : '90%',
+    height: windowHeight > 600 ? '60%' : '90%',
+    fontSize: windowWidth > 500 ? 50 : 24
   }
 });
